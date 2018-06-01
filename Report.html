@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><style></style></head><body id="preview">
+<h1><a id="Identification_of_alltype_RNAs_in_human_transcriptome_via_Illumina_and_Nanopore_platforms_0"></a>Identification of all-type RNAs in human transcriptome via Illumina and Nanopore platforms</h1>
+<h3><a id="recently_changed_to_1"></a><em>recently changed to:</em></h3>
+<h1><a id="Analysis_of_hypoxia_effect_on_PBML_cell_transcriptome_relating_to_exercise_stress_2"></a>Analysis of hypoxia effect on PBML cell transcriptome relating to exercise stress</h1>
+<p><em>Yury V. Malovichko, Andrey S. Glotov</em></p>
+<h2><a id="Abstract_5"></a>Abstract</h2>
+<p>Though mononuclear lymphocytes comprise but a minority of peripheral blood cells, they are utterly important for both innate and acquired immunity functioning. In the present work, we aim to expose cumulative effect of hypoxia and physical training on lymphocyte physiology by means of RNAseq assay. Default material was collected from 7 Olympics skaters who were training in the mountainous area at decent altitude either berfore or after training. The goals of the project are:</p>
+<ul>
+<li>perform basic quality control operations over transcriptomes in question;</li>
+<li>assess differential expression via kallisto tool;</li>
+<li>visulize results of differential expression;</li>
+<li>perform GO enrichment analysis;</li>
+<li>find any biological sense in resulting transcript, gene and GO lists.</li>
+</ul>
+<h2><a id="2_Materials_and_Methods_16"></a>2. Materials and Methods</h2>
+<h2><a id="21_Source_data_18"></a>2.1. Source data</h2>
+<p>PBML transcriptome was extracted and purified from mRNA with GLOBINclear Kit, huan for globin mRNA depletion. Purified total mRNA library was processed with TruSeq Stranded mRNA libraries (Illumina) as a plus-stranded library. Reads were indexed with AR001 index for pre-exercise assay (5’-ATCACG (A)-3’) and AR003 for -post-exercise assay (5’-TTAGGC (A)-3’) assay. Sequencing was performed on Illumina HiSeq 4000 in pair-end mode with single read length of 150 nucleotides.</p>
+<h2><a id="22_Quality_control_21"></a>2.2. Quality control</h2>
+<p>Read quality was assessed via FastQC v.0.11.7. In the overall, all four fastq files demonstrated same problems, such as duplication content and per tile quality distortion. Soft trimming was performed in Trimmomatic v.0.36. to get rid of indices. Processed library will be inspected for strand alignment for example, in Trinity, but for now only raw assessment inferred from Kallisto quantificatin has been obtainded.</p>
+<h2><a id="23_Alignmnent_onto_reference_genome_24"></a>2.3. Alignmnent onto reference genome</h2>
+<p>For genome alignmnent, we chose GRCh38 version of human genome assembly. We tried to index reference genome with STAR-2.5.3a. for future alignmnent with the same tool but met harsh requirements for both RAM and storage memory and now expect to perform same operations on Biobanc server.</p>
+<h2><a id="24_Quantification_and_globin_search_27"></a>2.4. Quantification and globin search</h2>
+<p>To quantify transcripts from unassembled reads we used Kallisto v.0.44.0. with hg19 chosen as reference transcriptome. Resulting tsv files were sorted by <em>tpm</em> value (column 5) in the decreasing order, after which were subsetted by 30 first entries and written into new txt files. Ensembl transcript ID were changed for NCBI Gene symbols or Info entries via bioDB:db2db online tool. For minus strand transcripts, alternative names were searched for manually.<br>
+After 6 new assays have been obtained, new <em>kallisto quant</em> round has been performed with number of bootstrap replicas equal 50 (see <em>kallisto_script.sh</em>). Results were also subsetted for top 50 most abundant transcripts (see <em>subsetting_script.sh</em>).</p>
+<h2><a id="25_Differential_expression_assessment_and_evaluation_31"></a>2.5. Differential expression assessment and evaluation</h2>
+<p>Kallisto output files were used for differential expression in R (<em>sleuth</em> package). First, a metadata file was created. Since there was no ready metadata available, we used only one factor (pre/post-excercise condition) for following model fitting. All transcripts were allocated respective Ensembl gene IDs and trivial names with <em>biomaRt</em> package. Model was built ad fitted as stated in <em>sleuth_script.R</em>. Resulting model output was sorted for entries with p-value &lt; 0.05. As a result, 137 transcripts belonging to 118 genes were discovered to be statistically different in their transcription (see file attached). For several data operations we also performed same operations against top-50 subsets,</p>
+<h3><a id="26_Visualization_34"></a>2.6. Visualization</h3>
+<h4><a id="261_Phantasus_and_abundance_lists_35"></a>2.6.1. <em>Phantasus</em> and abundance lists</h4>
+<p>Native abundance lists were used for <em>Phantasus</em> online tool heatmap building (see <em><a href="http://paster.sh">paster.sh</a></em> script). However, resulting pictures were found to be way too large for further downloading. Thus, transcript TPM values were log2-transformed and subsetted by value greater than 1 (see <em>for_phantasus.R</em> script). Nonetheless, this still was more than plausible for heatmap and PCA handling, so that we performed same operations over a top-50 list (see picture attached).</p>
+<h4><a id="262_PCA_plots_and_density_plots_37"></a>2.6.2. PCA plots and density plots</h4>
+<p>Density plot has been perfromed for <em>sleuth</em> resulting model. PCA pots in <em>sleuth</em> have been built for native models. Unlike this, <em>Phantasus</em> PCAs were based on top-50 subsets. Results (see pictures attached). These pictures showed suspicious clusterization that implies that basically donor effect may have been proposed to be necessary for our initial model.</p>
+</body></html>
