@@ -5,4 +5,5 @@ Though mononuclear lymphocytes comprise but a minority of peripheral blood cells
 - visulize results of differential expression; 
 - perform GO enrichment analysis; 
 - find any biological sense in resulting transcript, gene and GO lists.
+
 Though we failed to find any relevant biological interpretation of obtained results, we successed to find differential expression of more than 130 genes in the subset in question. including transcription factor genes, globin genes, genes of cytoskeletal proteins, *etc*.
