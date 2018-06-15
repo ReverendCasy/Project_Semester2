@@ -47,7 +47,7 @@ Density plot has been perfromed for *sleuth* resulting model. PCA pots in *sleut
 
 ## Results 
 ### Differentially expressed genes
-[137 transcripts belonging to 118 genes] (https://github.com/PreacherCasy/Project_Semester2/blob/master/p005comparison.tsv) were found to be differentially expressed between two physiological conditions with cutoff baseline of p < 0.05.
+[137 transcripts belonging to 118 genes](https://github.com/PreacherCasy/Project_Semester2/blob/master/p005comparison.tsv) were found to be differentially expressed between two physiological conditions with cutoff baseline of p < 0.05.
 
 ### Sample clusterization 
 ![Phantasus PCA mapped by top 50 transcript subsets](https://github.com/PreacherCasy/Project_Semester2/blob/master/Phantasus_PCA_Top_50.png) 
