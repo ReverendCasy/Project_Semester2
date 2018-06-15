@@ -3,7 +3,7 @@
 # Analysis of hypoxia effect on PBML cell transcriptome relating to exercise stress
 *Yury V. Malovichko, Andrey S. Glotov*
 
-## Abstract
+## Project description
 
 Though mononuclear lymphocytes comprise but a minority of peripheral blood cells, they are utterly important for both innate and acquired immunity functioning. In the present work, we aim to expose cumulative effect of hypoxia and physical training on lymphocyte physiology by means of RNAseq assay. Default material was collected from 7 Olympics skaters who were training in the mountainous area at decent altitude either berfore or after training. The goals of the project are:
 
