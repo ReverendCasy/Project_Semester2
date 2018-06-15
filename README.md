@@ -51,8 +51,10 @@ Density plot has been perfromed for *sleuth* resulting model. PCA pots in *sleut
 
 ### Sample clusterization 
 ![Phantasus PCA mapped by top 50 transcript subsets](https://github.com/PreacherCasy/Project_Semester2/blob/master/Phantasus_PCA_Top_50.png) 
+Phantasus PCA mapped by top 50 transcript subsets 
 ![Condition-dependent PCA in sleuth](https://github.com/PreacherCasy/Project_Semester2/blob/master/condition_PCA_sleuth.jpg) 
+Condition-dependent PCA in sleuth 
 ![Sample-dependent PCA in sleuth](https://github.com/PreacherCasy/Project_Semester2/blob/master/sample_PCA_sleuth.jpg) 
-
+Sample-dependent PCA in sleuth 
 ### Transcript density plot
 ![Density plot](https://github.com/PreacherCasy/Project_Semester2/blob/master/density_plot.jpg) 
